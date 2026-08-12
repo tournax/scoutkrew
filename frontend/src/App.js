@@ -1,58 +1,72 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { HOME } from "@/constants/testIds";
+import { useEffect, useRef } from "react";
+import Lenis from "lenis";
+import { Toaster } from "sonner";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import MarqueeStrip from "@/components/MarqueeStrip";
+import Problem from "@/components/Problem";
+import HowItWorks from "@/components/HowItWorks";
+import Features from "@/components/Features";
+import Matches from "@/components/Matches";
+import Stats from "@/components/Stats";
+import Games from "@/components/Games";
+import FinalCTA from "@/components/FinalCTA";
+import Footer from "@/components/Footer";
+import Cursor from "@/components/Cursor";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+export default function App() {
+  const lenisRef = useRef(null);
 
   useEffect(() => {
-    helloWorldApi();
+    const lenis = new Lenis({ lerp: 0.09 });
+    lenisRef.current = lenis;
+    let raf;
+    const loop = (time) => {
+      lenis.raf(time);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => {
+      cancelAnimationFrame(raf);
+      lenis.destroy();
+    };
   }, []);
 
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          data-testid={HOME.emergentLink}
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+  const scrollTo = (target) => {
+    lenisRef.current?.scrollTo(target, { offset: target === 0 ? 0 : -64, duration: 1.6 });
+  };
 
-function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+    <div className="relative min-h-screen bg-[#050505] text-zinc-200 overflow-x-clip">
+      <Cursor />
+      <div className="crt-overlay" aria-hidden="true" />
+      <div className="crt-vignette" aria-hidden="true" />
+      <div className="noise-overlay" aria-hidden="true" />
+      <Header onNavigate={scrollTo} />
+      <main>
+        <Hero onNavigate={scrollTo} />
+        <MarqueeStrip />
+        <Problem />
+        <HowItWorks />
+        <Features />
+        <Matches />
+        <Stats />
+        <Games />
+        <FinalCTA />
+      </main>
+      <Footer />
+      <Toaster
+        theme="dark"
+        position="bottom-center"
+        toastOptions={{
+          style: {
+            background: "#0a0a0a",
+            border: "1px solid rgba(0, 243, 255, 0.35)",
+            color: "#fff",
+            fontFamily: "Outfit, sans-serif",
+          },
+        }}
+      />
     </div>
   );
 }
-
-export default App;
-
-

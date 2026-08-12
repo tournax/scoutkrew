@@ -9,7 +9,7 @@ const LINES = [
   { text: "NOT JUST PLAYERS.", cls: "text-white" },
 ];
 
-export default function Hero({ onNavigate }) {
+export default function Hero({ onNavigate, onGetStarted }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], [0, 200]);

@@ -54,6 +54,7 @@ export default function Landing() {
         <FinalCTA />
       </main>
       <Footer />
+      <InstallPrompt />      
     </>
   );
 }

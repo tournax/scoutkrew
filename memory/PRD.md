@@ -28,13 +28,13 @@ Landing page only (marketing page, pre-auth) for ScoutKrew — a player-connecti
 - Global CRT scanlines + vignette + noise overlays in index.css
 
 ## Implemented
-- 2026-08-11: Full landing page, all 9 sections in order, custom cursor, chapter-numbered manifesto structure, neon hover glows, waitlist toast flow, character-select-style Matches cards with "your slot" empty card. Verified via screenshots + toast flow test.
+2026-08-11: Dummy app shell added (user request, visual only, no integrations): Get Started → /auth dummy login (Google + email/password, any input works) → /app with bottom dock nav. Pages: Home (squad-online row + clips feed), Explore (working client-side search + game chips + clips grid), Chat (threads, send message locally), Matches (role filter chips + squad-fit bars + invite toast), Profile (player card with 3D rotating gem, stats, my clips). All data mocked in src/data/dummy.js. Same retro-arcade theme, CRT overlays, 3D orbs on auth page.
 
 ## Backlog / Next
-- P0: none (all requested sections delivered)
+- P0: real backend (auth, clips, chat, matching) — user said they will build backend themselves
 - P1: wire waitlist to real email capture (Resend or DB endpoint) when user wants it
 - P1: real game logos/art for Games row
 - P2: mobile-specific 3D tuning, reduced-motion fallbacks, FAQ section, blog/SEO pages
 
 ## Test Credentials
-- None required (no auth in scope)
+- Dummy auth: any email/password works; see /app/memory/test_credentials.md

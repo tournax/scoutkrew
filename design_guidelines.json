@@ -1,0 +1,138 @@
+{
+  "theme": "dark",
+  "typography": {
+    "fonts": {
+      "heading": "Bungee, system-ui, sans-serif",
+      "body": "Outfit, system-ui, sans-serif",
+      "accent": "Silkscreen, monospace"
+    },
+    "hierarchy": {
+      "h1": "text-5xl sm:text-6xl lg:text-7xl tracking-tighter uppercase",
+      "h2": "text-4xl sm:text-5xl lg:text-6xl tracking-tight uppercase",
+      "h3": "text-2xl sm:text-3xl tracking-tight",
+      "body": "text-base sm:text-lg leading-relaxed text-zinc-400",
+      "accent": "text-xs sm:text-sm tracking-[0.2em] uppercase font-accent"
+    },
+    "instructions": "Use 'Bungee' for massive, chunky retro headlines. Use 'Outfit' for clean, readable body text. Use 'Silkscreen' for tiny pixel-adjacent accents, overlines, and stats. Ensure headings have tight tracking. Inter is strictly forbidden for headings."
+  },
+  "colors": {
+    "background": {
+      "primary": "#050505",
+      "secondary": "#0a0a0a",
+      "surface": "#121212"
+    },
+    "accent": {
+      "neon_magenta": "#FF007F",
+      "neon_cyan": "#00F3FF",
+      "neon_yellow": "#FFD700",
+      "neon_green": "#39FF14"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA",
+      "muted": "#52525B"
+    },
+    "instructions": "Base the design on Deep Void Black (#050505) to ensure neon accents pop. Use Neon Magenta and Neon Cyan as primary interactive and glow colors (arcade marquee energy). Avoid muddy gradients; use sharp, high-contrast neon lighting effects."
+  },
+  "visual_enhancers": {
+    "crt_scanlines": "Overlay a fixed, pointer-events-none div with a repeating linear gradient to simulate CRT monitor scanlines. Use low opacity (e.g., 5-10%).",
+    "neon_glow": "Use Tailwind drop-shadow utilities with custom neon colors (e.g., drop-shadow-[0_0_15px_rgba(255,0,127,0.8)]) for buttons, active cards, and key text elements.",
+    "shapes": "Rounded pill buttons (rounded-full), soft-radius cards (rounded-2xl), circular avatars (rounded-full). Balance the soft UI shapes with the chunky pixel typography.",
+    "textures": "Include a subtle noise/grain texture overlaid on the background to enhance the 90s/2000s analog arcade feel."
+  },
+  "layouts": {
+    "spacing": "Generous Spacing Philosophy. Use p-8 to p-16 for card interiors and py-24 to py-32 for section padding.",
+    "grid": "Use asymmetric bento grids for the 'Features showcase'. Span items unevenly to create visual tension. For 'Matches highlight', use a slightly staggered horizontal layout or overlapping cards."
+  },
+  "motion": {
+    "scroll": "MANDATORY: Implement Lenis smooth scrolling for premium weight and momentum.",
+    "hero_reveal": "MANDATORY: Masked line-by-line headline reveal on load using framer-motion (animate y from 100% to 0 with overflow-hidden wrapper).",
+    "parallax": "Use framer-motion useScroll and useTransform for subtle background element parallax and floating components.",
+    "micro_interactions": "Hover states on cards should include a slight lift (-translate-y-2) and intensify the neon border/box-shadow. Buttons should have a scale effect on tap."
+  },
+  "3d_libraries": {
+    "primary": "@react-three/fiber, @react-three/drei",
+    "instructions": "In the Hero section, build a Three.js canvas. Include floating, glowing low-poly orbs (using MeshStandardMaterial with emissive properties) and a tilted 3D plane/box acting as a stylized isometric phone mockup. It must react slightly to mouse movement (mouse parallax). Keep the 3D aesthetic retro-arcade (blocky, glowing, dark) rather than hyper-realistic Apple-style glass."
+  },
+  "components": [
+    {
+      "name": "Hero",
+      "instructions": "Full height (min-h-screen). Headline 'Find your squad. Not just players.' in Bungee. Subtext in Outfit. 'Get Started' pill button (neon cyan glow) that scrolls to bottom CTA. Background uses Three.js canvas with floating orbs and tilted UI mockup. Masked line reveal for heading."
+    },
+    {
+      "name": "Marquee / Problem Strip",
+      "instructions": "Use react-fast-marquee. A slow editorial marquee strip with Silkscreen font, reading 'Struggling to find real teammates?'. Below it, a 3-column grid with icon points: no gameplay proof, mismatched skill levels, no real channel to connect. Use glowing Phosphor icons."
+    },
+    {
+      "name": "How it works",
+      "instructions": "Numbered manifesto-style. Use massive pixel-font numbers (1, 2, 3) behind the text. Steps: Create Profile -> Post Clips -> Get Matched by Role. Left-aligned or staggered."
+    },
+    {
+      "name": "Features showcase",
+      "instructions": "Bento grid of cards. Cards have soft radius, deep dark background, subtle neon borders on hover. Items: Clips Feed, Smart Matching, Role-Based Matchmaking, Chat, Verified Player Profiles."
+    },
+    {
+      "name": "Matches highlight",
+      "instructions": "Standout spotlight section. Display player profile cards categorized by Role (IGL, Sniper, Support). Use overlapping absolute positioning or a horizontal scroll to make it feel like a character select screen from a fighting game."
+    },
+    {
+      "name": "Stats Strip",
+      "instructions": "High-contrast section. '10K+ players waitlisted', '5K+ matches made'. Use accent font (Silkscreen) and neon colors."
+    },
+    {
+      "name": "Games supported",
+      "instructions": "Row of game names/logos (Free Fire, BGMI, COD Mobile, Valorant). Use text with glowing effects or simple monochrome SVGs. Add an arcade marquee border above/below."
+    },
+    {
+      "name": "Final CTA",
+      "instructions": "Repeat headline. Include an email input field and a 'Join Waitlist' button. Upon submission, show a toast confirmation using Sonner. Give the section a massive radial gradient glow in the background."
+    },
+    {
+      "name": "Footer",
+      "instructions": "Minimal. Logo, About, Privacy, Terms, Contact links. Social icons. Copyright."
+    }
+  ],
+  "accessibility": {
+    "contrast": "Ensure text over glowing elements maintains minimum 4.5:1 contrast. Use text-shadow to separate text from neon backgrounds if necessary.",
+    "testing": "All interactive elements (buttons, inputs) MUST have data-testid attributes."
+  },
+  "media": {
+    "image_urls": [
+      {
+        "url": "https://images.pexels.com/photos/7849511/pexels-photo-7849511.jpeg",
+        "category": "Avatar/Profile",
+        "description": "Gamer with headset, use for Matches highlight player cards."
+      },
+      {
+        "url": "https://images.pexels.com/photos/9072320/pexels-photo-9072320.jpeg",
+        "category": "Avatar/Profile",
+        "description": "Esports player concentrating, use for Matches highlight."
+      },
+      {
+        "url": "https://images.pexels.com/photos/10126380/pexels-photo-10126380.jpeg",
+        "category": "Background/Texture",
+        "description": "Retro arcade machine neon, use as a low-opacity background blend in the features or CTA section to add texture."
+      }
+    ],
+    "instructions": "Use these images creatively within avatars or masked background areas. Do not rely on generic placeholders. If additional icons are needed, use lucide-react or @phosphor-icons/react."
+  },
+  "instructions_to_main_agent": [
+    "Install required dependencies: framer-motion, @studio-freight/lenis, @react-three/fiber, @react-three/drei, three, react-fast-marquee, sonner, lucide-react.",
+    "Include global CSS for the CRT scanline effect and noise texture.",
+    "Do NOT use pure white or pure black blindly. Use the specified deep void black (#050505) and off-white/zinc for text.",
+    "Ensure the hero section 3D canvas is positioned behind the text (z-0) and text is above (z-10).",
+    "Use Bungee for headings, Outfit for body, and Silkscreen for small accents.",
+    "Form input should be a Shadcn/Tailwind custom styled input, omitting actual auth logic. On submit, trigger a Sonner toast: 'You have been added to the waitlist!'.",
+    "Do NOT add a generic navigation header if not requested, but since it's a landing page, a minimal sticky header with Logo and 'Get Started' button is best practice. Make it glassmorphic with neon bottom border.",
+    "The 'Get Started' button MUST scroll down to the final CTA section using Lenis or standard smooth scroll behavior."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not use generic centered layouts. Use asymmetrical, staggered, or grid-based layouts.",
+    "Create depth through layered design elements with z-index hierarchy and neon box-shadows.",
+    "Do not use `transition: all`. Specify properties.",
+    "Do not center align the app container text.",
+    "Every interaction needs micro-animations - hover states, transitions.",
+    "Never use AI assistant emoji characters.",
+    "Ensure components have data-testid attributes."
+  ]
+}

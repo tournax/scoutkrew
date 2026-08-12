@@ -7,7 +7,7 @@ const NAV = [
   { label: "GAMES", target: "#games" },
 ];
 
-export default function Header({ onNavigate }) {
+export default function Header({ onNavigate, onGetStarted }) {
   return (
     <header data-testid="site-header" className="fixed top-0 inset-x-0 z-50 bg-[#050505]/70 backdrop-blur-xl border-b border-white/5">
       <div className="h-px w-full bg-gradient-to-r from-transparent via-neon-cyan/60 to-transparent" />
@@ -40,7 +40,7 @@ export default function Header({ onNavigate }) {
 
         <button
           data-testid="header-get-started-btn"
-          onClick={() => onNavigate("#join")}
+          onClick={onGetStarted}
           className="rounded-full bg-neon-cyan px-5 sm:px-6 py-2.5 font-pixel text-[10px] tracking-[0.2em] text-black transition-shadow duration-300 hover:shadow-[0_0_28px_rgba(0,243,255,0.65)] active:scale-95"
         >
           GET STARTED

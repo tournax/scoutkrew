@@ -12,6 +12,7 @@ import Stats from "@/components/Stats";
 import Games from "@/components/Games";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import InstallPrompt from "@/components/InstallPrompt";
 
 export default function Landing() {
   const lenisRef = useRef(null);

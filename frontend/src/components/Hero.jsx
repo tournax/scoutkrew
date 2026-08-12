@@ -69,7 +69,7 @@ export default function Hero({ onNavigate, onGetStarted }) {
         >
           <button
             data-testid="hero-get-started-btn"
-            onClick={() => onNavigate("#join")}
+            onClick={onGetStarted}
             className="group rounded-full bg-neon-cyan px-8 py-4 font-pixel text-xs tracking-[0.2em] text-black flex items-center gap-3 transition-shadow duration-300 hover:shadow-[0_0_36px_rgba(0,243,255,0.7)] active:scale-95"
           >
             <Zap className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
